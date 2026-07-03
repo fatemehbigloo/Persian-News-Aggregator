@@ -1,0 +1,170 @@
+<!DOCTYPE html dir="rtl>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>نتایج جستجو</title>
+</head>
+<body>
+   <div class="container">
+    <h1>نتایج برای "{{q}}"</h1>
+    {% if news %}
+      <ul>
+      {% for n in news %}
+        <li><a href="{{n.link}}" target="_blank">{{n.title}}</a></li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>هیچ خبری یافت نشد 🙁</p>
+    {% endif %}
+    <a href="/search">بازگشت به جستجو</a>
+    <a href="/">بازشگشت به صفحه اصلی</a>
+   </div>
+
+</body>
+</html>
+
+<style>
+  /* General body styling - (همانند قبل) */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 40px;
+}
+
+/* Container for centering content - (همانند قبل) */
+.container {
+    width: 80%;
+    max-width: 960px;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles - (کمی تغییر برای صفحه جستجو) */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 25px; /* کمی کمتر از قبل */
+    font-size: 2.2em; /* کمی کوچکتر برای صفحه جستجو */
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Unordered list styling - (همانند قبل) */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* List item styling - (همانند قبل) */
+li {
+    background-color: #ecf0f1;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li:hover {
+    background-color: #bdc3c7;
+    transform: translateY(-2px);
+}
+
+/* Link styling within list items - (همانند قبل) */
+li a {
+    color: #2980b9;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+li a:hover {
+    color: #1f618d;
+    text-decoration: underline;
+}
+
+/* Styling for the 'no news found' message */
+p {
+    text-align: center;
+    color: #7f8c8d; /* رنگ خاکستری ملایم */
+    font-size: 1.1em;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fdf2e9; /* رنگ پس‌زمینه ملایم */
+    border-radius: 5px;
+    border-left: 4px solid #e67e22; /* نوار رنگی در سمت چپ */
+}
+
+/* Link styling for 'Back to Search' */
+a[href="/search"], a[href= "/"] {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #2ecc71; /* رنگ سبز برای بازگشت */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a[href="/search"]:hover {
+    background-color: #27ae60; /* رنگ سبز تیره‌تر */
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments - (همانند قبل) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 20px;
+    }
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 1.9em;
+    }
+    li a {
+        font-size: 1em;
+    }
+    p {
+        font-size: 1em;
+    }
+    a[href="/search"] {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.7em;
+    }
+    li {
+        padding: 10px 15px;
+    }
+    li a, p, a[href="/search"] {
+        font-size: 0.95em;
+    }
+}
+
+</style>

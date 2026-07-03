@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جستجوی خبرها</title>
+  
+</head>
+<body>
+  <div class="container">
+    <h1>جستجوی خبر</h1>
+
+    <form action="/results" class="search-form">
+      <input type="text" name="q" placeholder="کلمه مورد نظر..." value="{{q}}">
+      <button type="submit">جستجو</button>
+    </form>
+  </div>
+</body>
+</html>
+<style>
+  /* Search page form */
+.search-form {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.search-form input[type="text"] {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 16px;
+    border: 1px solid #d0d7de;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #2c3e50;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.search-form input[type="text"]::placeholder {
+    color: #95a5a6;
+}
+
+.search-form input[type="text"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.12);
+}
+
+.search-form button[type="submit"] {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3498db, #2c80b8);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+    box-shadow: 0 6px 16px rgba(52, 152, 219, 0.25);
+}
+
+.search-form button[type="submit"]:hover {
+    background: linear-gradient(135deg, #2c80b8, #236b9a);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.search-form button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
+}
+
+</style>

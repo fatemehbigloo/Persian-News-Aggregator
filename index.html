@@ -1,0 +1,152 @@
+    <!DOCTYPE html>
+    <html lang="fa" dir="rtl"> <!-- dir="rtl" برای راست به چپ کردن -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- برای ریسپانسیو بودن -->
+        <title>آخرین اخبار</title>
+
+        
+    </head>
+    <body>
+        <div class="container">
+            <h1>آخرین خبرها</h1>
+            <ul>
+                {% for n in news %}
+                  <li><a href="{{n.link}}" target="_blank">{{n.title}}</a></li>
+                {% endfor %}
+            </ul>
+            <a href="/search">جستجو</a>
+        </div>
+    </body>
+    </html>
+
+    <style>
+          /* General body styling */
+body {
+    font-family: 'Arial', sans-serif; /* فونت خوانا و مدرن */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* پس‌زمینه روشن و آرام */
+    color: #333; /* رنگ متن اصلی */
+    line-height: 1.6;
+    display: flex; /* برای سنتر کردن محتوا */
+    justify-content: center;
+    align-items: flex-start; /* شروع از بالا */
+    min-height: 100vh; /* حداقل ارتفاع صفحه */
+    padding-top: 40px; /* فضای بالا */
+}
+
+/* Container for centering content */
+.container {
+    width: 80%; /* عرض محتوا */
+    max-width: 960px; /* حداکثر عرض */
+    background-color: #ffffff; /* پس‌زمینه سفید برای کانتینر */
+    padding: 30px 40px; /* فضای داخلی */
+    border-radius: 8px; /* گوشه‌های گرد */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* سایه ظریف */
+}
+
+/* Heading styles */
+h1 {
+    color: #2c3e50; /* رنگ تیره‌تر برای عنوان اصلی */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em; /* اندازه بزرگتر */
+    border-bottom: 2px solid #3498db; /* خط زیر عنوان */
+    padding-bottom: 10px;
+}
+
+/* Unordered list styling */
+ul {
+    list-style: none; /* حذف نشانگر پیش‌فرض لیست */
+    padding: 0;
+}
+
+/* List item styling */
+li {
+    background-color: #ecf0f1; /* پس‌زمینه روشن برای هر آیتم */
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-radius: 5px; /* گوشه‌های گرد */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* انیمیشن ظریف */
+    display: flex; /* برای تراز کردن */
+    align-items: center;
+    justify-content: space-between; /* آیتم‌ها در دو طرف */
+}
+
+li:hover {
+    background-color: #bdc3c7; /* تغییر رنگ هنگام هاور */
+    transform: translateY(-2px); /* کمی بالا آمدن */
+}
+
+/* Link styling within list items */
+li a {
+    color: #2980b9; /* رنگ لینک */
+    text-decoration: none; /* حذف خط زیر لینک */
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    flex-grow: 1; /* برای گرفتن فضای موجود */
+    margin-right: 15px; /* فاصله از دکمه جستجو */
+}
+
+li a:hover {
+    color: #1f618d; /* رنگ تیره‌تر هنگام هاور */
+    text-decoration: underline; /* خط زیر لینک هنگام هاور */
+}
+
+/* Link styling for search */
+a[href="/search"] {
+    display: block; /* نمایش به صورت بلاک */
+    text-align: center;
+    margin-top: 30px; /* فاصله از لیست */
+    padding: 12px 25px;
+    background-color: #3498db; /* رنگ آبی */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: fit-content; /* عرض مناسب */
+    margin-left: auto; /* برای قرار گرفتن در سمت راست */
+    margin-right: auto; /* برای سنتر کردن */
+}
+
+a[href="/search"]:hover {
+    background-color: #2980b9; /* رنگ تیره‌تر */
+    transform: translateY(-2px); /* کمی بالا آمدن */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding-top: 20px;
+    }
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    li a {
+        font-size: 1em;
+    }
+    a[href="/search"] {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    li {
+        padding: 10px 15px;
+    }
+    li a, a[href="/search"] {
+        font-size: 0.95em;
+    }
+}
+
+        </style>
