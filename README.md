@@ -1,4 +1,6 @@
 # Persian-News-Aggregator
+Create a file and put the python files in it.
+And in the same folder create another folder called templates and put the html files there
 **run app.py for see exit**
  simple web application with **Flask** that receives, stores and displays the news of the day from various sources. Users can browse the news or search by keyword.
 
